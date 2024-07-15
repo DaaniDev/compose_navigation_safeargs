@@ -12,12 +12,12 @@ import androidx.compose.ui.Modifier
 fun ScreenA(modifier: Modifier, onNavigate: () -> Unit) {
 
     Column(
-        modifier = modifier,
-        verticalArrangement = Arrangement.Center,
+        modifier = modifier, verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Button(onClick = { onNavigate.invoke() }) {
-            Text(text = "Navigate to Screen B")
+    ){
+        Button(onClick = onNavigate) {
+            Text(text = "Navigated to Screen B")
         }
     }
+
 }

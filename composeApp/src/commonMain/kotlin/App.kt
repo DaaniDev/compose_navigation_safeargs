@@ -20,23 +20,21 @@ fun App() {
         val navController = rememberNavController()
         Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
 
-            NavHost(navController = navController, startDestination = ScreenARoute) {
-                composable<ScreenARoute> {
-                    ScreenA(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(innerPadding)
-                    ) {
-                        navController.navigate(ScreenBRoute("Muhammad", "Danish", null))
+            NavHost(navController = navController, startDestination = ScreenARoute){
+
+                composable<ScreenARoute>{
+                    ScreenA(modifier = Modifier.fillMaxSize().padding(innerPadding)){
+                        navController.navigate(ScreenBRoute("John", "Doe", "Male"))
                     }
                 }
 
-                composable<ScreenBRoute> {
-                    ScreenB(screenBRoute = it.toRoute()) {
+                composable<ScreenBRoute>{
+                    ScreenB(screenB = it.toRoute()){
                         navController.popBackStack()
                     }
                 }
             }
+
         }
     }
 }
@@ -46,3 +44,4 @@ object ScreenARoute
 
 @Serializable
 data class ScreenBRoute(val firstName: String, val lastName: String, val gender: String?)
+

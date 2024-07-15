@@ -9,20 +9,20 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.pointer.PointerIcon.Companion.Text
 
 @Composable
-fun ScreenB(screenBRoute: ScreenBRoute, onNavigate: () -> Unit) {
+fun ScreenB(screenB: ScreenBRoute, onNavigate: () -> Unit) {
 
     Column(
         modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ){
+        Text(text = "First Name is ${screenB.firstName}, last Name is ${screenB.lastName}, Gender is ${screenB.gender}")
 
-        Text(text = "FirstName is ${screenBRoute.firstName}, LastName is ${screenBRoute.lastName}, Gender is ${screenBRoute.gender}")
-
-        Button(onClick = { onNavigate.invoke() }) {
-            Text(text = "Go back")
+        Button(onClick = onNavigate) {
+            Text(text = "Go Back")
         }
     }
 }
